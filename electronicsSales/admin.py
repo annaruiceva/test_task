@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.utils.safestring import mark_safe
+
 from .models import Product, City, Country, Element, ProductName
 
 # Register your models here.
@@ -12,7 +13,8 @@ admin.site.register(Country)
 # admin.site.register(Worker)
 admin.site.register(ProductName)
 admin.site.register(User)
-from  .tasks import update_queryset
+from .tasks import update_queryset
+
 
 @admin.register(Element)
 class MembersAdmin(admin.ModelAdmin):

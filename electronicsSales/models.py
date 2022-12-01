@@ -1,12 +1,6 @@
-from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
-
-
-
 
 
 class ProductName(models.Model):
@@ -80,8 +74,6 @@ class User(AbstractUser):
     )
     phone = models.CharField(max_length=20, blank=True, default='')
     member = models.ForeignKey(Element, on_delete=models.SET_NULL, blank=True, null=True, related_name='workers')
-
-
 
 # @receiver(post_save, sender=Element)
 # def add_product_to_customer(sender, instance, created, **kwargs):

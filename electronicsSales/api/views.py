@@ -11,15 +11,6 @@ from electronicsSales import models
 from electronicsSales.api.serializers import MembersModelSerializer, \
     ProductsModelSerializer, ProductsIntModelSerializer, MemberSmallModelSerializer, MemberModelSerializer, \
     MemberSmallDebtModelSerializer, UpdateMemberModelSerializer, MemberContactSerializer
-# @api_view(['GET'])
-# def members_api(request):
-#     if not request.user.is_anonymous:
-#         if request.method == 'GET':
-#             members = models.Element.objects.all()
-#             serializer = MembersModelSerializer(members, many=True)
-#             return Response(serializer.data, status=status.HTTP_200_OK)
-#     else:
-#         return Response({'detail': 'not authorized'}, status=status.HTTP_401_UNAUTHORIZED)
 from electronicsSales.tasks import send_email
 from electronicsSales.utils import create_qr_code
 
