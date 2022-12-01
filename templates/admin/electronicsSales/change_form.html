@@ -1,0 +1,25 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+{% block object-tools %}
+    {% if  opts.model_name == 'element'%}
+        <button onclick="myFunction()">Copy email</button>
+    {% endif %}
+
+
+    <script>
+        function myFunction() {
+            var copyText = document.evaluate(
+                '//input[@name="email"]',
+                document,
+                null,
+                XPathResult.FIRST_ORDERED_NODE_TYPE,
+                null,
+            ).singleNodeValue;
+
+            copyText.select();
+            document.execCommand("copy");
+            alert("Copied the email: " + copyText.value);
+        }
+    </script>
+
+{% endblock %}
